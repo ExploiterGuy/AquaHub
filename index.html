@@ -62,28 +62,20 @@
             0% { opacity: 0; transform: translateY(-30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-        .copy-text {
+        .content {
             font-size: 1.1rem;
-            padding: 10px 20px;
-            background-color: #00bcd4;
-            border-radius: 25px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0px 4px 15px rgba(0, 188, 212, 0.4);
+            line-height: 1.6;
+            color: #ffffff;
+            margin-top: 20px;
+            text-align: left;
+            font-weight: 300;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 188, 212, 0.3);
         }
-        .copy-text:hover {
-            background-color: #009688;
-            transform: translateY(-5px);
-            box-shadow: 0px 8px 20px rgba(0, 150, 136, 0.4);
-        }
-        .copy-text:active {
-            background-color: #00796b;
-            transform: translateY(2px);
-        }
-        .copy-text:focus {
-            outline: none;
+        .content p {
+            margin-bottom: 15px; /* Added space between paragraphs */
         }
         .container::after {
             content: "";
@@ -101,7 +93,7 @@
             .title {
                 font-size: 7vw;
             }
-            .copy-text {
+            .content {
                 font-size: 1rem;
             }
         }
@@ -109,35 +101,8 @@
             .title {
                 font-size: 8vw;
             }
-            .copy-text {
+            .content {
                 font-size: 0.9rem;
-            }
-        }
-        /* Custom Notification Styles */
-        .notification {
-            position: fixed;
-            top: 70px; /* Positioned above the container */
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #00bcd4;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s, visibility 0.5s ease-out;
-            z-index: 999;
-        }
-        .notification.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        @media (max-width: 480px) {
-            .notification {
-                font-size: 0.9rem;
-                padding: 6px 12px;
             }
         }
     </style>
@@ -146,32 +111,14 @@
     <div id="particles-js"></div>
     <div class="container">
         <div class="title">Aqua Hub</div>
-        <div class="copy-text" onclick="copyToClipboard()">Click here to copy the key</div>
+        <div class="content">
+            <p><strong>To Access Aqua Hub, Use Your Roblox Username</strong></p>
+            <p>You can access this system using your Roblox username. This is all you need to know!</p>
+            <p>If you have any questions, feel free to reach out to support or check the FAQ page of Aqua Hub's discord server. </p>
+        </div>
     </div>
 
-    <div class="notification" id="notification">Key copied to clipboard!</div>
-
     <script>
-        function copyToClipboard() {
-            const text = "4Xy!Zp2024@K#3y%1aq";
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textArea);
-            showNotification();
-        }
-
-        function showNotification() {
-            const notification = document.getElementById("notification");
-            notification.classList.add("show");
-
-            setTimeout(() => {
-                notification.classList.remove("show");
-            }, 3000);
-        }
-
         // Particle.js Configuration
         particlesJS('particles-js', {
             particles: {
