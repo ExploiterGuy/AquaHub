@@ -24,6 +24,36 @@
             overflow: hidden;
             position: relative;
         }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            opacity: 1;
+            animation: fadeOut 2s ease-in-out forwards;
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
         /* Particle background styling */
         #particles-js {
             position: absolute;
@@ -75,7 +105,7 @@
             box-shadow: 0px 4px 15px rgba(0, 188, 212, 0.3);
         }
         .content p {
-            margin-bottom: 15px; /* Added space between paragraphs */
+            margin-bottom: 15px;
         }
         .container::after {
             content: "";
@@ -108,10 +138,18 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <span>Loading...</span>
+    </div>
+
+    <!-- Particle Background -->
     <div id="particles-js"></div>
+
+    <!-- Main Content -->
     <div class="container">
         <div class="title">Aqua Hub</div>
-        <div class="content">
+<div class="content">
             <p><strong>The key to Aqua Hub is your Roblox Username</strong></p>
             <p>The key for Aqua Hub is just your Roblox username. This is all you need to know!</p>
             <p>If you have any questions, feel free to reach out to support or check the FAQ page of Aqua Hub's discord server. </p>
@@ -193,6 +231,13 @@
             },
             retina_detect: true
         });
+
+        // Simulate loading screen disappearing after a delay
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById("loading-screen").style.display = "none";
+            }, 2000); // Adjust the time (in ms) to control how long the loading screen stays visible
+        };
     </script>
 </body>
 </html>
